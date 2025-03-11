@@ -45,6 +45,8 @@ class ModelTrainer:
                 "XGBRegressor": XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
+                "Support Vector Machine": SVR(),
+                "KNeighborsRegressor": KNeighborsRegressor(),
             }
             params={
                 "Decision Tree": {
@@ -66,7 +68,11 @@ class ModelTrainer:
                     # 'max_features':['auto','sqrt','log2'],
                     'n_estimators': [8,16,32,64,128,256]
                 },
-                "Linear Regression":{},
+                "Linear Regression":{
+                    'fit_intercept':[True,False],
+                    'normalize':[True,False],
+                    'copy_X':[True,-1]
+                },
                 "XGBRegressor":{
                     'learning_rate':[.1,.01,.05,.001],
                     'n_estimators': [8,16,32,64,128,256]
